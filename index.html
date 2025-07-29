@@ -8,11 +8,22 @@
 </head>
 
 <body>
+    <h1>Etch-A-Sketch</h1>
+    <hr>
+    <main>
+    <div class="container"></div>
     <div class="controls">
         <input type="number" id="grid-size" min="1" max="100" placeholder="Grid size (max 100)">
         <button id="create-button">Create Grid</button>
+
+        <input type="color" id="color-picker" value="#000000">
+        <button id="use-color">Use Selected Color</button>
+        <button id="rgb-mode">RGB Mode</button>
     </div>
-    <center><div class="container"></div></center>
+    </main>
+    <footer>
+        <p>Designed by Ali Shahrez &copy; 2025</p>
+    </footer>
     <script src="java.js"></script>
 </body>
 </html>

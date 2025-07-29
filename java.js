@@ -9,12 +9,13 @@ const createButton = document.querySelector('#create-button')
 
 function makeGrid(size) {
     container.innerHTML = '';
-    const squareSize=640/size
+    const squareSize = 100 / size;
+
     for (let i=0; i<size*size; i++) {
         const div = document.createElement('div');
         div.classList.add('square')
-        div.style.width = `${squareSize}px`
-        div.style.height = `${squareSize}px`
+        div.style.flexBasis = `${squareSize}%`
+        div.style.aspectRatio = '1 / 1'
         div.style.backgroundColor = 'hsl(0, 0%, 100%)'
         div.dataset.shade = "0";
 
