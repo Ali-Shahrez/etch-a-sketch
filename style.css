@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   width: 640px;
   height: 640px;
+  border: 2px solid #333;
+
 }
 
 .square {
@@ -11,3 +13,9 @@
   box-sizing: border-box;
   border: 1px solid #ccc;
 }
+
+.square:hover {
+  background-color: lightblue;
+  border-color: #888;
+}
+
