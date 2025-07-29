@@ -1,5 +1,9 @@
-const container = document.querySelector(".container")
+let isDrawing = false;
 
+document.addEventListener('mousedown' , () => isDrawing = true)
+document.addEventListener('mouseup', () => isDrawing = false)
+
+const container = document.querySelector(".container")
 const gridSize = document.querySelector("#grid-size")
 const createButton = document.querySelector('#create-button')
 
@@ -11,6 +15,25 @@ function makeGrid(size) {
         div.classList.add('square')
         div.style.width = `${squareSize}px`
         div.style.height = `${squareSize}px`
+        div.style.backgroundColor = 'hsl(0, 0%, 100%)'
+        div.dataset.shade = "0";
+
+        function darkenSquare() {
+            let currentShade = parseInt(div.dataset.shade);
+            if (currentShade<10) {
+                currentShade++;
+                div.dataset.shade = currentShade;
+                const lightness = 100 - (currentShade*10)
+                div.style.backgroundColor = `hsl(0, 0%, ${lightness}%)`
+            }
+        }
+
+        div.addEventListener('click', darkenSquare);
+        div.addEventListener('mouseenter', function() {
+            if (isDrawing) darkenSquare();
+
+        });
+
         container.appendChild(div)
     }
 }
